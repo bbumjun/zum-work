@@ -1,0 +1,12 @@
+$font_color: black;
+$font_family: Arial, sans-serif;
+$font_size: 16px;
+$line_height: percentage(20px / $font_size);
+$max_width: 1280px;
+$border_bottom: 1px rgb(224, 224, 224) solid;
+@mixin button($font-size) {
+  font-size: $font-size;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
