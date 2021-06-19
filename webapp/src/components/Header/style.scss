@@ -1,0 +1,38 @@
+@import "../../scss/vars.scss";
+.first-row {
+  border-bottom: $border_bottom;
+  .logo {
+    @include button(2rem);
+    font-weight: bold;
+    color: #1b52ed;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    max-width: $max_width;
+    margin: 0 auto;
+    padding: 1rem 0;
+    .bookmark {
+      @include button(1rem);
+    }
+  }
+}
+.second-row {
+  .button-list {
+    max-width: $max_width;
+    margin: 0 auto;
+
+    list-style: none;
+    display: flex;
+    padding: 1rem;
+    li {
+      button {
+        @include button(1rem);
+        padding-right: 1rem;
+        &:hover {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
