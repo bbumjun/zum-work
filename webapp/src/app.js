@@ -12,7 +12,7 @@ const routes = [
     {
       category: "life",
     },
-    "/content/life",
+    "/life",
     SubPage
   ),
   new Route(
@@ -20,7 +20,7 @@ const routes = [
     {
       category: "food",
     },
-    "/content/food",
+    "/food",
     SubPage
   ),
   new Route(
@@ -28,7 +28,7 @@ const routes = [
     {
       category: "travel",
     },
-    "/content/travel",
+    "/travel",
     SubPage
   ),
   new Route(
@@ -36,7 +36,7 @@ const routes = [
     {
       category: "culture",
     },
-    "/content/culture",
+    "/culture",
     SubPage
   ),
 ];
