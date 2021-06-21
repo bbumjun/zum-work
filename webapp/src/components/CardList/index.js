@@ -16,8 +16,8 @@ export default class CardList extends Component {
             summaryContent.length >= 40 ? "..." : ""
           }</p>
           <div class="last-line">
-          <span class="media-name">${mediaName}</span>
-          <span class="bookmark-button">즐겨찾기 추가</span>
+          <sub class="media-name">${mediaName}</sub>
+          <sub class="bookmark-button">즐겨찾기 추가</sub>
           </div>
       </li>
       `
