@@ -4,13 +4,16 @@ export default (routes) => {
   const router = new Router(routes, document.getElementById("router"));
 
   document.addEventListener("DOMContentLoaded", (e) => {
-    document.querySelectorAll("[route]").forEach((route) =>
-      route.addEventListener("click", (e) => {
-        const matchedRoute = router.match(e.target.getAttribute("route"));
+    document.addEventListener("click", ({ target }) => {
+      if (target.hasAttribute("route")) {
+        const matchedRoute = router.match(target.getAttribute("route"));
         history.pushState({}, matchedRoute.name, matchedRoute.path);
         router.navigate(matchedRoute);
-      })
-    );
+
+        const pushStateEvent = new Event("pushstate");
+        window.dispatchEvent(pushStateEvent);
+      }
+    });
   });
 
   window.onpopstate = () => {
