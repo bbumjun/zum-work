@@ -17,22 +17,3 @@
     }
   }
 }
-.second-row {
-  .button-list {
-    max-width: $max_width;
-    margin: 0 auto;
-
-    list-style: none;
-    display: flex;
-    padding: 1rem;
-    li {
-      button {
-        @include button(1rem);
-        padding-right: 1rem;
-        &:hover {
-          font-weight: bold;
-        }
-      }
-    }
-  }
-}
