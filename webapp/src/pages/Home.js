@@ -1,5 +1,6 @@
 import Component from "../core/Component";
 import CardList from "../components/CardList";
+import RankTable from "../components/RankTable";
 import Loader from "../components/Loader";
 import fetch from "../util/fetchWithTimeout";
 export default class Home extends Component {
@@ -9,6 +10,7 @@ export default class Home extends Component {
       food: [],
       travel: [],
       culture: [],
+      rank: [],
       loading: true,
       error: null,
     };
@@ -31,6 +33,7 @@ export default class Home extends Component {
     <section data-component="food-contents"></section>
     <section data-component="travel-contents"></section>
     <section data-component="culture-contents"></section>
+    <section data-component="rank-table"></section>
     `;
   }
 
@@ -42,9 +45,12 @@ export default class Home extends Component {
 
       const baseUrl = "http://localhost:3000";
       const categories = ["life", "food", "travel", "culture"];
-      Promise.all(
-        categories.map((category) => fetch(baseUrl + `/content/${category}`))
-      )
+      Promise.all([
+        ...categories.map((category) =>
+          fetch(baseUrl + `/content/${category}`)
+        ),
+        fetch(baseUrl + "/best"),
+      ])
         .then((responses) => {
           return Promise.all(responses.map((response) => response.json()));
         })
@@ -54,6 +60,7 @@ export default class Home extends Component {
             food: dataArr[1],
             travel: dataArr[2],
             culture: dataArr[3],
+            rank: dataArr[4],
           });
         })
         .catch((err) => {
@@ -77,12 +84,15 @@ export default class Home extends Component {
       const $cultureSection = this.target.querySelector(
         '[data-component="culture-contents"]'
       );
-
-      const { life, food, travel, culture } = this.state;
+      const $rankTable = this.target.querySelector(
+        '[data-component="rank-table"]'
+      );
+      const { life, food, travel, culture, rank } = this.state;
       new CardList($lifeSection, { items: life, title: "라이프" });
       new CardList($foodSection, { items: food, title: "푸드" });
       new CardList($travelSection, { items: travel, title: "여행" });
       new CardList($cultureSection, { items: culture, title: "문화" });
+      new RankTable($rankTable, { items: rank });
     }
   }
 }
