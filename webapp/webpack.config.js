@@ -8,6 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "./public"),
     filename: "[name].js",
+    publicPath: "/",
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -28,11 +29,16 @@ module.exports = {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
+      {
+        test: /\.svg$/,
+        loader: "file-loader",
+      },
     ],
   },
 
   devServer: {
     port: 8080,
     open: true,
+    historyApiFallback: true,
   },
 };
