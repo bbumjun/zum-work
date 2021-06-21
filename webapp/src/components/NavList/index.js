@@ -10,11 +10,11 @@ export default class NavList extends Component {
     const { navItems } = this.props;
     const { currentPath } = this.state;
     return `
-    <ul>
+    <ul class="nav-list">
       ${navItems
         .map(
           ({ path, name }) => `
-      <li>
+      <li class="nav-item">
         <button route=${path} ${
             currentPath === path ? "class='active'" : ""
           }>${name}</button>
