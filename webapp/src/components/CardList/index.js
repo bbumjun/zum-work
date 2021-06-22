@@ -15,7 +15,7 @@ export default class CardList extends Component {
       ${items
         .map(
           ({ idx, title, imageUrl, mediaName, url, summaryContent }) => `
-      <li data-idx="${idx}">
+      <li data-idx="${idx}" route="/detail" data-url="${url}">
           <img class="thumbnail" src="${imageUrl}"/>  
           <h4 class="title">${title}</h4>
           <p class="description">${summaryContent.slice(0, 40)}${
@@ -39,7 +39,9 @@ export default class CardList extends Component {
     return this.props.items.filter((item) => item.idx == idx);
   }
   setEvent() {
-    this.addEvent("click", ".bookmark", ({ target }) => {
+    this.addEvent("click", ".bookmark", (event) => {
+      event.stopPropagation();
+      const { target } = event;
       const idx = target.dataset.idx;
       const item = this.filteredItem(idx);
       if (bookmarks.hasItem(idx)) {
