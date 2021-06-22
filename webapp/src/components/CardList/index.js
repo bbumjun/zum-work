@@ -4,7 +4,11 @@ export default class CardList extends Component {
   template() {
     const { items } = this.props;
     return `
-    <h3 class="category-title">${this.props.title}</h3>
+    ${
+      this.props.title
+        ? `<h3 class="category-title">${this.props.title}</h3>`
+        : ""
+    }
     <ul class="flex-container">
       ${items
         .map(
@@ -26,6 +30,4 @@ export default class CardList extends Component {
     </ul>
     `;
   }
-
-  mounted() {}
 }

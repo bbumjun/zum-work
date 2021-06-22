@@ -1,16 +1,16 @@
 .flex-container {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 2rem;
+  flex-wrap: wrap;
   border-bottom: 1px lightgray solid;
   li {
-    flex: 1;
+    width: 18rem;
+    padding-bottom: 5rem;
+
     img {
       width: 100%;
     }
-    &:not(:first-child) {
-      padding-left: 2rem;
-    }
+
     .description {
       color: gray;
     }
