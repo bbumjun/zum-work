@@ -1,7 +1,7 @@
 import { observable } from "../core/mobx";
 
 const bookmarks = observable({
-  list: [],
+  list: JSON.parse(localStorage.getItem("bookmarks")) || [],
   get thisList() {
     return this.list;
   },
@@ -10,9 +10,11 @@ const bookmarks = observable({
   },
   newItem(item) {
     this.list = this.list.concat(item);
+    localStorage.setItem("bookmarks", JSON.stringify(this.list));
   },
   deleteItem(idx) {
     this.list = this.list.filter((item) => item.idx != idx);
+    localStorage.setItem("bookmarks", JSON.stringify(this.list));
   },
 });
 
