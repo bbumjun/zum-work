@@ -10,7 +10,7 @@ const routes = [
   new Route(
     "life",
     {
-      category: "life",
+      categoryName: "라이프",
     },
     "/life",
     SubPage
@@ -18,7 +18,7 @@ const routes = [
   new Route(
     "food",
     {
-      category: "food",
+      categoryName: "푸드",
     },
     "/food",
     SubPage
@@ -26,7 +26,7 @@ const routes = [
   new Route(
     "travel",
     {
-      category: "travel",
+      categoryName: "여행",
     },
     "/travel",
     SubPage
@@ -34,7 +34,7 @@ const routes = [
   new Route(
     "culture",
     {
-      category: "culture",
+      categoryName: "컬쳐",
     },
     "/culture",
     SubPage
