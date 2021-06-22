@@ -5,8 +5,9 @@ export default (routes) => {
 
   document.addEventListener("DOMContentLoaded", (e) => {
     document.addEventListener("click", ({ target }) => {
-      if (target.hasAttribute("route")) {
-        const matchedRoute = router.match(target.getAttribute("route"));
+      const targetElement = target.closest("[route]");
+      if (targetElement) {
+        const matchedRoute = router.match(targetElement.getAttribute("route"));
         history.pushState({}, matchedRoute.name, matchedRoute.path);
         router.navigate(matchedRoute);
 

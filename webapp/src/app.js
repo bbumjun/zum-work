@@ -6,6 +6,7 @@ import SubPage from "./pages/SubPage";
 import Header from "./components/Header";
 import "./scss/main";
 import Bookmark from "./pages/Bookmark";
+import Detail from "./pages/Detail";
 const routes = [
   new Route("home", {}, "/", Home),
   new Route(
@@ -41,6 +42,7 @@ const routes = [
     SubPage
   ),
   new Route("bookmark", {}, "/bookmark", Bookmark),
+  new Route("detail", {}, "/detail", Detail),
 ];
 export default class App extends Component {
   setup() {}
