@@ -14,7 +14,7 @@
         font-weight: bold;
       }
       &.active {
-        background-color: #547ea7;
+        background-color: $theme_color;
         color: white;
       }
     }
