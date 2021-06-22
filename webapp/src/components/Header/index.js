@@ -3,14 +3,6 @@ import NavList from "../NavList";
 import "./style";
 export default class Header extends Component {
   template() {
-    const navItems = [
-      { path: "/", name: "홈" },
-      { path: "/life", name: "라이프" },
-      { path: "/food", name: "푸드" },
-      { path: "/travel", name: "여행" },
-      { path: "/culture", name: "컬쳐" },
-    ];
-
     return `
       <div class="first-row">
         <div class="container">
