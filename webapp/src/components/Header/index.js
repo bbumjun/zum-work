@@ -7,7 +7,7 @@ export default class Header extends Component {
       <div class="first-row">
         <div class="container">
         <span class="logo" route="/">ZUM 허브</span>
-        <button class="bookmark">즐겨찾기</button>
+        <button class="bookmark" route="/bookmark">즐겨찾기</button>
         </div>
       </div>
       <nav class="second-row" data-component="nav-list"></nav
