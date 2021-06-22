@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import SubPage from "./pages/SubPage";
 import Header from "./components/Header";
 import "./scss/main";
+import Bookmark from "./pages/Bookmark";
 const routes = [
   new Route("home", {}, "/", Home),
   new Route(
@@ -39,6 +40,7 @@ const routes = [
     "/culture",
     SubPage
   ),
+  new Route("bookmark", {}, "/bookmark", Bookmark),
 ];
 export default class App extends Component {
   setup() {}
