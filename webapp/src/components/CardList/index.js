@@ -1,5 +1,7 @@
 import Component from "../../core/Component";
 import "./style";
+import bookmarks from "../../store/bookmarks";
+
 export default class CardList extends Component {
   template() {
     const { items } = this.props;
@@ -21,7 +23,9 @@ export default class CardList extends Component {
           }</p>
           <div class="last-line">
           <sub class="media-name">${mediaName}</sub>
-          <sub class="bookmark-button">즐겨찾기 추가</sub>
+          <sub class="bookmark" data-idx="${idx}">${
+            bookmarks.hasItem(idx) ? "★" : `☆`
+          }</sub>
           </div>
       </li>
       `
@@ -29,5 +33,21 @@ export default class CardList extends Component {
         .join("")}
     </ul>
     `;
+  }
+
+  filteredItem(idx) {
+    return this.props.items.filter((item) => item.idx == idx);
+  }
+  setEvent() {
+    this.addEvent("click", ".bookmark", ({ target }) => {
+      const idx = target.dataset.idx;
+      const item = this.filteredItem(idx);
+      if (bookmarks.hasItem(idx)) {
+        bookmarks.deleteItem(idx);
+      } else {
+        bookmarks.newItem(item);
+      }
+      this.render();
+    });
   }
 }
