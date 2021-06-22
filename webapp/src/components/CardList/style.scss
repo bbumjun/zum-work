@@ -1,12 +1,13 @@
 .flex-container {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   border-bottom: 1px lightgray solid;
   li {
     width: 18rem;
     padding-bottom: 5rem;
-
+    &:not(:nth-child(4n + 1)) {
+      padding-left: 2rem;
+    }
     img {
       width: 100%;
     }
