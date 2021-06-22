@@ -1,8 +1,8 @@
-import Component from "../core/Component";
-import CardList from "../components/CardList";
-import RankTable from "../components/RankTable";
-import Loader from "../components/Loader";
-import fetch from "../util/fetchWithTimeout";
+import Component from "../../core/Component";
+import CardList from "../../components/CardList";
+import RankTable from "../../components/RankTable";
+import Loader from "../../components/Loader";
+import fetch from "../../util/fetchWithTimeout";
 export default class Home extends Component {
   setup() {
     this.state = {
@@ -61,15 +61,11 @@ export default class Home extends Component {
             travel: dataArr[2],
             culture: dataArr[3],
             rank: dataArr[4],
+            loading: false,
           });
         })
         .catch((err) => {
-          this.setState({ error: err });
-        })
-        .finally(() => {
-          this.setState({
-            loading: false,
-          });
+          this.setState({ error: err, loading: false });
         });
     } else if (!error) {
       const $lifeSection = this.target.querySelector(
