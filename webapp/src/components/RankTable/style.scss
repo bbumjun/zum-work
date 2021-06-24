@@ -1,0 +1,33 @@
+@import "../../scss/vars.scss";
+.rank-list {
+  display: flex;
+  flex-wrap: wrap;
+  .rank-item {
+    flex: 1 0 20%;
+    background-color: whitesmoke;
+    border: 1px solid white;
+    @media screen and (max-width: $max_width) {
+      flex: 1 0 40%;
+    }
+    &:hover {
+      background-color: $theme_color;
+      color: white;
+    }
+    a {
+      display: flex;
+      color: inherit;
+      .rank-index {
+        font-size: 2rem;
+        font-weight: bold;
+        color: lightgray;
+        padding: 1rem;
+      }
+      .description {
+        padding: 1rem;
+      }
+      sub {
+        color: silver;
+      }
+    }
+  }
+}

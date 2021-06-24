@@ -1,0 +1,7 @@
+@import "./vars.scss";
+@import "./body.scss";
+
+#router {
+  max-width: $max_width;
+  margin: 0 auto;
+}

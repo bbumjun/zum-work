@@ -1,0 +1,36 @@
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px lightgray solid;
+  li {
+    width: 18rem;
+    padding-bottom: 5rem;
+    &:not(:nth-child(4n + 1)) {
+      padding-left: 1.8rem;
+    }
+    img {
+      width: 100%;
+    }
+
+    .description {
+      color: gray;
+    }
+    .last-line {
+      display: flex;
+      justify-content: space-between;
+    }
+    .media-name {
+      color: silver;
+    }
+
+    &:hover {
+      cursor: pointer;
+      img {
+        filter: brightness(0.8);
+      }
+      .title {
+        color: cornflowerblue;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+body {
+  color: $font_color;
+
+  font: {
+    size: $font_size;
+    family: $font_family;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
